@@ -388,41 +388,6 @@
     </div>
 
     <script>
-                // إنشاء عنصر الـ Overlay عند تحميل الصفحة
-                const overlay = document.createElement("div");
-        overlay.style.position = "fixed";
-        overlay.style.top = "0";
-        overlay.style.left = "0";
-        overlay.style.width = "100vw";
-        overlay.style.height = "100vh";
-        overlay.style.background = "rgba(0, 0, 0, 1)";
-        overlay.style.color = "white";
-        overlay.style.display = "flex";
-        overlay.style.justifyContent = "center";
-        overlay.style.alignItems = "center";
-        overlay.style.fontSize = "24px";
-        overlay.style.zIndex = "9999";
-        overlay.style.opacity = "0";
-        overlay.style.transition = "opacity 0.3s ease-in-out";
-        overlay.innerHTML = "Screenshot capturing is not allowed";
-        overlay.style.cursor = "pointer";
-        document.body.appendChild(overlay);
-        // إخفاء الـ Overlay عند النقر عليه
-        overlay.addEventListener("click", function () {
-            overlay.style.opacity = "0";
-            setTimeout(() => (overlay.style.display = "none"), 300);
-        });
-
-        // إضافة حدث للكيبورد لمنع الـ PrintScreen
-        document.addEventListener("keyup", function (event) {
-            if (event.key === "PrintScreen") {
-                navigator.clipboard.writeText(""); // إزالة المحتوى من الحافظة
-                // إظهار الـ Overlay
-                overlay.style.display = "flex";
-                setTimeout(() => (overlay.style.opacity = "1"), 10);
-            }
-        });
-
         document.addEventListener("keydown", function (event) {
             if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
                 event.preventDefault();
@@ -438,33 +403,33 @@
         let score = 0;
         let timerInterval;
         const answers = {
-          q1: "Atrial fibrillation",  
-          q2: "Paroxysmal atrial fibrillation",  
-          q3: "Atrial fibrillation",  
-          q4: "Heparin and synchronized DC shock",  
-          q5: "Age > 65 years",  
-          q6: "Beta blocker",  
-          q7: "Atenolol",  
-          q8: "Digoxin",  
-          q9: "Diltiazem",  
-          q10: "Flecainide",  
-          q11: "Amiodarone",  
-          q12: "To detect hypokalaemia",  
-          q13: "Warfarin, target INR 2-3 for life",  
-          q14: "Short History Of AF",  
-          q15: "Clarithromycin",  
-          q16: "AF",  
-          q17: "Libman sacks endocarditis",  
-          q18: "Patent foramen ovale",  
-          q19: "Atrial flutter",  
-          q20: "Right atrial macro reentry",  
-          q21: "Radiofrequency ablation of the tricuspid valve isthmus",  
-          q22: "Carotid sinus massage",  
-          q23: "Intravenous adenosine",  
-          q24: "Adenosine",  
-          q25: "Intravenous adenosine 12 mg",  
-          q26: "Intravenous verapamil"
-};
+            q1: "Atrial fibrillation",  
+            q2: "Paroxysmal atrial fibrillation",  
+            q3: "Atrial fibrillation",  
+            q4: "Heparin and synchronized DC shock",  
+            q5: "Age > 65 years",  
+            q6: "Beta blocker",  
+            q7: "Atenolol",  
+            q8: "Digoxin",  
+            q9: "Diltiazem",  
+            q10: "Flecainide",  
+            q11: "Amiodarone",  
+            q12: "To detect hypokalaemia",  
+            q13: "Warfarin, target INR 2-3 for life",  
+            q14: "Short History Of AF",  
+            q15: "Clarithromycin",  
+            q16: "AF",  
+            q17: "Libman sacks endocarditis",  
+            q18: "Patent foramen ovale",  
+            q19: "Atrial flutter",  
+            q20: "Right atrial macro reentry",  
+            q21: "Radiofrequency ablation of the tricuspid valve isthmus",  
+            q22: "Carotid sinus massage",  
+            q23: "Intravenous adenosine",  
+            q24: "Adenosine",  
+            q25: "Intravenous adenosine 12 mg",  
+            q26: "Intravenous verapamil",
+        };
 
         function showQuestion() {
             document.querySelectorAll('.question').forEach((q, index) => {
